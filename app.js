@@ -1,4 +1,4 @@
-document.querySelector('button').addEventListener('click',()=> {
+document.querySelector('button').addEventListener('click',(e)=> {
 var imageLink= 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Tokyo_Sky_Tree_2012.JPG',
 downloadSize=8185374,
 time_start,time_end,
@@ -16,8 +16,10 @@ downloadSrc.onload= function () {
     totalSpeed=((loadedBytes/timeDuration)/1024/1024).toFixed(2);
     document.querySelector('.content').innerHTML=totalSpeed+'<small>Mbps</small>';
     document.querySelector('.loader-content').classList.remove('hide');
+    document.querySelector('.loader-content').classList.add('result');
     document.querySelector('.loader').classList.add('hide');
    document.querySelector('.content').classList.remove('hide');
+   e.target.innerText='CHECK AGAIN';
 }
 
 })
