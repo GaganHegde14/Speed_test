@@ -14,6 +14,16 @@ downloadSrc.onload= function () {
     var timeDuration=(time_end-time_start)/1000;
     loadedBytes=downloadSize*8;
     totalSpeed=((loadedBytes/timeDuration)/1024/1024).toFixed(2);
+    let i = 0;
+let speedOut;
+const animate = () => {
+    if (i < totalSpeed) {
+        document.querySelector('.content').innerHTML = i.toFixed(2) + '<small>Mbps</small>';
+        setTimeout(animate, 20);
+        i++;
+    }
+};
+    animate();
     document.querySelector('.content').innerHTML=totalSpeed+'<small>Mbps</small>';
     document.querySelector('.loader-content').classList.remove('hide');
     document.querySelector('.loader-content').classList.add('result');
